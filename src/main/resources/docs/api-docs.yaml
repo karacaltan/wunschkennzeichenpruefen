@@ -3,25 +3,33 @@ info:
   title: OpenAPI definition
   version: v0
 servers:
-- url: http://localhost:8090/
-  description: Generated server url
+  - url: http://localhost:8090
+    description: Generated server url
 paths:
   /wunschenkennzeichenpruefen/{licensePlate}:
     get:
       tags:
-      - wunschkennzeichen-pruefen-controller
+        - wunschkennzeichen-pruefen-controller
       operationId: checkPlateAvailable
       parameters:
-      - name: licensePlate
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: licensePlate
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
           content:
             '*/*':
               schema:
-                type: object
-components: {}
+                $ref: '#/components/schemas/KennzeichenPruefen'
+components:
+  schemas:
+    KennzeichenPruefen:
+      type: object
+      properties:
+        isDesiredLicensePlateFree:
+          type: boolean
+        desiredLicensePlate:
+          type: string
