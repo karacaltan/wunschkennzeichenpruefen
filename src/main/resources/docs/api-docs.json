@@ -1,0 +1,46 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+       "title": "OpenAPI definition",
+       "version": "v0"
+    },
+    "servers": [
+       {
+          "url": "http://localhost:8090/",
+          "description": "Generated server url"
+       }
+    ],
+    "paths": {
+       "/wunschenkennzeichenpruefen/{licensePlate}": {
+          "get": {
+             "tags": [
+                "wunschkennzeichen-pruefen-controller"
+             ],
+             "operationId": "checkPlateAvailable",
+             "parameters": [
+                {
+                   "name": "licensePlate",
+                   "in": "path",
+                   "required": true,
+                   "schema": {
+                      "type": "string"
+                   }
+                }
+             ],
+             "responses": {
+                "200": {
+                   "description": "OK",
+                   "content": {
+                      "*/*": {
+                         "schema": {
+                            "type": "object"
+                         }
+                      }
+                   }
+                }
+             }
+          }
+       }
+    },
+    "components": {}
+ }
