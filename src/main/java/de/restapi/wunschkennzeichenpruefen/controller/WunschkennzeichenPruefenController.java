@@ -14,12 +14,12 @@ public class WunschkennzeichenPruefenController {
 
     @GetMapping("/wunschenkennzeichenpruefen/{licensePlate}")
     @ResponseBody
-    public ResponseEntity<Object> checkPlateAvailable(@PathVariable("licensePlate") String licensePlate) {
+    public Fahrzeug checkPlateAvailable(@PathVariable("licensePlate") String licensePlate) {
         Random randomCheck = new Random();
         Boolean checked = randomCheck.nextBoolean();
         Fahrzeug fahrzeug = new Fahrzeug();
         fahrzeug.setDesiredLicensePlate(licensePlate);
         fahrzeug.setIsDesiredLicensePlateFree(checked);
-        return ResponseEntity.ok(fahrzeug);
+        return fahrzeug;
     }
 }
