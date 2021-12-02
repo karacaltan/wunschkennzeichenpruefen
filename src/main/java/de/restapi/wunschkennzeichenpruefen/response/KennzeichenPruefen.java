@@ -3,7 +3,7 @@ package de.restapi.wunschkennzeichenpruefen.response;
 import lombok.Data;
 
 @Data
-public class Fahrzeug {
+public class KennzeichenPruefen {
 
     private Boolean isDesiredLicensePlateFree;
     private String desiredLicensePlate;

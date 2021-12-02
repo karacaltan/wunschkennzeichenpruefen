@@ -1,7 +1,6 @@
 package de.restapi.wunschkennzeichenpruefen.controller;
 
-import de.restapi.wunschkennzeichenpruefen.response.Fahrzeug;
-import org.springframework.http.ResponseEntity;
+import de.restapi.wunschkennzeichenpruefen.response.KennzeichenPruefen;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,12 +13,12 @@ public class WunschkennzeichenPruefenController {
 
     @GetMapping("/wunschenkennzeichenpruefen/{licensePlate}")
     @ResponseBody
-    public Fahrzeug checkPlateAvailable(@PathVariable("licensePlate") String licensePlate) {
+    public KennzeichenPruefen checkPlateAvailable(@PathVariable("licensePlate") String licensePlate) {
         Random randomCheck = new Random();
         Boolean checked = randomCheck.nextBoolean();
-        Fahrzeug fahrzeug = new Fahrzeug();
-        fahrzeug.setDesiredLicensePlate(licensePlate);
-        fahrzeug.setIsDesiredLicensePlateFree(checked);
-        return fahrzeug;
+        KennzeichenPruefen kennzeichenPruefen = new KennzeichenPruefen();
+        kennzeichenPruefen.setDesiredLicensePlate(licensePlate);
+        kennzeichenPruefen.setIsDesiredLicensePlateFree(checked);
+        return kennzeichenPruefen;
     }
 }
